@@ -1,0 +1,38 @@
+{
+  "name": "attemis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@paper-design/shaders-react": "^0.0.60",
+    "@radix-ui/react-slot": "latest",
+    "@tailwindcss/postcss": "^4.1.14",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "geist": "^1.5.1",
+    "lucide-react": "^0.454.0",
+    "motion": "^12.23.24",
+    "next": "14.2.16",
+    "next-view-transitions": "^0.3.4",
+    "ogl": "latest",
+    "progressive-blur": "latest",
+    "react": "^18",
+    "react-dom": "^18",
+    "styled-jsx": "^5.1.7",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "tw-animate-css": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^18.3.26",
+    "@types/react-dom": "^18",
+    "postcss": "^8.5",
+    "typescript": "^5"
+  }
+}

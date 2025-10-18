@@ -18,16 +18,16 @@ export default function Contact() {
         className="justify-center items-center flex-col gap-20 md:gap-20"
       >
         <div className="w-full flex items-center justify-center py-16">
-          <div className="w-full px-6 xl:px-0">
+          <div className="w-full xl:px-0">
             <h2 className="mt-3 font-overused-grotesk text-6xl sm:text-6xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-6xl">
               Entre em <span className="font-thin">contato</span> conosco.
             </h2>
-            <div className="mt-12 lg:mt-24 grid lg:grid-cols-2 gap-16 md:gap-10">
+            <div className="mt-12 lg:mt-24 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-10">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-row gap-3 items-center">
                   <MailIcon />
                   <Link
-                    className="text-xl"
+                    className="text-xl w-full"
                     href="mailto:douglas.spalato@attemistecnologia.com.br"
                   >
                     douglas.spalato@attemistecnologia.com.br
@@ -36,7 +36,7 @@ export default function Contact() {
                 <div className="flex flex-row gap-3 items-start">
                   <MapPinIcon />
                   <Link
-                    className="text-xl"
+                    className="text-xl w-full"
                     href="https://map.google.com"
                     target="_blank"
                   >
@@ -65,7 +65,7 @@ export default function Contact() {
                           Primeiro nome
                         </Label>{" "}
                         <Input
-                          placeholder="Primeiro nome"
+                          placeholder=""
                           id="firstName"
                           className="mt-2 bg-white h-10 shadow-none text-lg"
                         />
@@ -75,7 +75,7 @@ export default function Contact() {
                           Último nome
                         </Label>{" "}
                         <Input
-                          placeholder="Último nome"
+                          placeholder=""
                           id="lastName"
                           className="mt-2 bg-white h-10 shadow-none text-lg"
                         />
@@ -86,7 +86,7 @@ export default function Contact() {
                         </Label>{" "}
                         <Input
                           type="email"
-                          placeholder="Email"
+                          placeholder=""
                           id="email"
                           className="mt-2 bg-white h-10 shadow-none text-lg"
                         />
@@ -97,7 +97,7 @@ export default function Contact() {
                         </Label>{" "}
                         <Textarea
                           id="message"
-                          placeholder="Mensagem"
+                          placeholder=""
                           className="mt-2 bg-white shadow-none text-lg"
                           rows={6}
                         />

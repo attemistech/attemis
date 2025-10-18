@@ -109,12 +109,6 @@ export default function Navbar() {
                   pathname === p.path && "text-black font-bold"
                 )}
                 href={p.path}
-                onClick={(e: any) => {
-                  e.preventDefault();
-                  router.push(p.path, {
-                    onTransitionReady: ModalPageAnimation,
-                  });
-                }}
               >
                 <span className="relative z-20">{p.label}</span>
               </Link>
@@ -211,12 +205,6 @@ export default function Navbar() {
                     key={`mobile-${p.path}`}
                     href={p.path}
                     className="text-left px-4 py-3 text-lg font-medium tracking-tighter uppercase text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title"
-                    onClick={(e: any) => {
-                      e.preventDefault();
-                      router.push(p.path, {
-                        onTransitionReady: ModalPageAnimation,
-                      });
-                    }}
                   >
                     {p.label}
                   </Link>

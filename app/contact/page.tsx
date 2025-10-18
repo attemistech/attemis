@@ -33,7 +33,7 @@ export default function Contact() {
                     douglas.spalato@attemistecnologia.com.br
                   </Link>
                 </div>
-                <div className="flex flex-row gap-3 items-center">
+                <div className="flex flex-row gap-3 items-start">
                   <MapPinIcon />
                   <Link
                     className="text-xl"

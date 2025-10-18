@@ -26,13 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
         >
           <Navbar />
-          <PageTransitionEffect>
-            <div
-              id="portal"
-              className="absolute inset-0 min-h-screen min-w-screen"
-            />
-            {children}
-          </PageTransitionEffect>
+          <PageTransitionEffect>{children}</PageTransitionEffect>
         </body>
       </html>
     </ViewTransitions>

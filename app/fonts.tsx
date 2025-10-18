@@ -8,6 +8,8 @@ import {
   Unbounded,
 } from "next/font/google";
 
+import localFont from "next/font/local";
+
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
@@ -38,6 +40,11 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
 });
 
+const overusedGrotesk = localFont({
+  src: "../public/fonts/OverusedGroteskRoman-VF.ttf",
+  variable: "--font-overused-grotesk",
+});
+
 export default {
   InstrumentSerif: instrumentSerif,
   InstrumentSans: instrumentSans,
@@ -46,4 +53,5 @@ export default {
   GeistMono,
   Manrope: manrope,
   Unbounded: unbounded,
+  OverusedGrotesk: overusedGrotesk,
 };

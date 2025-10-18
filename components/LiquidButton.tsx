@@ -42,6 +42,7 @@ interface LiquidButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof liquidbuttonVariants> {
   asChild?: boolean;
+  outline?: boolean;
 }
 
 function ButtonGlassFilter() {
@@ -87,7 +88,18 @@ function ButtonGlassFilter() {
 }
 
 const LiquidButton = React.forwardRef<HTMLButtonElement, LiquidButtonProps>(
-  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      outline = true,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = asChild ? Slot : motion.button;
     const filterId = React.useId();
 
@@ -100,12 +112,15 @@ const LiquidButton = React.forwardRef<HTMLButtonElement, LiquidButtonProps>(
             liquidbuttonVariants({ variant, size, className })
           )}
           ref={ref}
-          initial={{ outlineColor: "#cccccccc", outlineOffset: "0px" }}
+          initial={{
+            outlineColor: outline ? "#cccccccc" : "#00000000",
+            outlineOffset: "0px",
+          }}
           whileHover={{
-            outlineColor: "#ccccccff",
+            outlineColor: outline ? "#ccccccff" : "#00000000",
             outlineOffset: "6px",
           }}
-          trasition={{ duration: 0.15 }}
+          transition={{ duration: 0.15 }}
           {...props}
         >
           <div className="absolute top-0 left-0 z-0 h-full w-full rounded-full shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.6),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.65),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.5),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)] transition-all _dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]" />

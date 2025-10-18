@@ -21,11 +21,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             Fonts.GeistMono.variable,
             Fonts.Manrope.variable,
             Fonts.Inter.variable,
-            Fonts.Unbounded.variable
+            Fonts.Unbounded.variable,
+            Fonts.OverusedGrotesk.variable
           )}
         >
           <Navbar />
-          <PageTransitionEffect>{children}</PageTransitionEffect>
+          <PageTransitionEffect>
+            <div
+              id="portal"
+              className="absolute inset-0 min-h-screen min-w-screen"
+            />
+            {children}
+          </PageTransitionEffect>
         </body>
       </html>
     </ViewTransitions>

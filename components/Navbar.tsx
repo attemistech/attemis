@@ -59,14 +59,6 @@ export default function Navbar() {
       {/* Desktop Header */}
       <header
         className={`fixed top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-start self-start rounded-full md:flex transition-all duration-300 px-5 sm:px-20`}
-        style={{
-          willChange: "transform",
-          transform: "translateZ(0) translateX(-50%)",
-          backfaceVisibility: "hidden",
-          perspective: "1000px",
-          background: "transparent",
-          left: "50%",
-        }}
       >
         <div
           className={`w-full flex-row items-center justify-between gap-6 rounded-full backdrop-blur-md md:flex border border-default-border transition-all duration-300 py-4 px-4 ${
@@ -82,7 +74,7 @@ export default function Navbar() {
             initial={{ gap: 12 }}
             animate={{ gap: isScrolled ? 0 : 12 }}
           >
-            <Image src={Logo} height={24} />
+            <Image alt="Logo" src={Logo} height={24} />
             <motion.div
               initial={{
                 opacity: 1,
@@ -94,10 +86,10 @@ export default function Navbar() {
               }}
             >
               <motion.div className="flex flex-col items-center justify-center gap-0 overflow-clip pl-3">
-                <h1 className="font-unbounded tracking-tight font-black text-[1rem] -mb-2 pr-px right-0">
+                <h1 className="!font-unbounded tracking-tight font-black text-[1rem] -mb-2 pr-px right-0">
                   attemis
                 </h1>
-                <h1 className="font-unbounded tracking-tight font-medium text-[.81rem] right-0">
+                <h1 className="!font-unbounded tracking-tight font-medium text-[.81rem] right-0">
                   tecnologia
                 </h1>
               </motion.div>
@@ -111,8 +103,9 @@ export default function Navbar() {
           <div className="inset-0 hidden flex-1 flex-row gap-6 items-center justify-start space-x-2 text-sm font-medium text-black/70 transition duration-200 hover:text-black md:flex md:space-x-2">
             {PAGES.map((p) => (
               <Link
+                key={p.path}
                 className={cn(
-                  `text-sm font-medium font-geist-sans uppercase tracking-tight text-black/70 hover:text-black transition-colors cursor-pointer`,
+                  `text-base font-medium font-overused-grotesk uppercase tracking-tight text-black/70 hover:text-blackcursor-pointer transition-all`,
                   pathname === p.path && "text-black font-bold"
                 )}
                 href={p.path}
@@ -132,46 +125,69 @@ export default function Navbar() {
 
       {/* Mobile Header */}
       <header
-        className={`fixed top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full backdrop-blur-md md:hidden px-4 py-3 border transition-all duration-300 ${
-          isScrolled
-            ? "border-white/20 shadow-lg"
-            : "border-transparent shadow-none"
-        }`}
-        style={{
-          background: isScrolled ? "rgba(15, 15, 15, 0.8)" : "transparent",
-          left: "1rem",
-          right: "1rem",
-          width: "calc(100% - 2rem)",
-        }}
+        className={`fixed w-full top-4 z-[9999] flex items-center justify-between rounded-full md:hidden px-4 py-3 transition-all duration-300`}
       >
-        <a className="flex items-center justify-center gap-2" href="/">
-          <Image src={Logo} height={24} />
-        </a>
-
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-10 h-10 rounded-full transition-colors hover:bg-white/10"
-          aria-label="Toggle menu"
-          style={{ background: "rgba(255, 255, 255, 0.05)" }}
+        <div
+          className={`w-full h-16 flex flex-row items-center justify-between gap-6 rounded-full backdrop-blur-md md:flex border border-default-border transition-all duration-300 py-4 px-4 ${
+            isScrolled ? "shadow-lg" : "border-transparent shadow-none"
+          } py-2`}
+          style={{
+            background: isScrolled ? "rgba(255, 255, 255, 0.8)" : "transparent",
+          }}
         >
-          <div className="flex flex-col items-center justify-center w-5 h-5 space-y-1">
-            <span
-              className={`block w-4 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-4 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            ></span>
-            <span
-              className={`block w-4 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
-            ></span>
-          </div>
-        </button>
+          <a className="flex items-center justify-center gap-2 w-max" href="/">
+            <Image alt="Logo" src={Logo} height={24} />
+          </a>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex items-center justify-center w-10 h-10 rounded-full transition-colors"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              {isMobileMenuOpen ? (
+                <motion.svg
+                  key="close"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-6 h-6 text-black"
+                  initial={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
+                  animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+                  exit={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </motion.svg>
+              ) : (
+                <motion.svg
+                  key="menu"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-6 h-6 text-black"
+                  initial={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
+                  animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
+                  exit={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </motion.svg>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
       </header>
 
       <AnimatePresence>
@@ -183,7 +199,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="absolute top-24 left-4 right-4 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl p-6"
+              className="absolute top-24 left-4 right-4 backdrop-blur-md border border-[#ffffff11] rounded-2xl shadow-2xl p-6"
               style={{ background: "rgba(255, 255, 255, 0.1)" }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -192,8 +208,9 @@ export default function Navbar() {
               <nav className="flex flex-col space-y-4">
                 {PAGES.map((p) => (
                   <Link
+                    key={`mobile-${p.path}`}
                     href={p.path}
-                    className="text-left px-4 py-3 text-lg font-medium uppercase text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10 font-geist-sans tracking-tight"
+                    className="text-left px-4 py-3 text-lg font-medium tracking-tighter uppercase text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title"
                     onClick={(e: any) => {
                       e.preventDefault();
                       router.push(p.path, {

@@ -125,12 +125,27 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
-  --font-geist: 'Geist';
-  --font-manrope: 'Manrope';
-  --font-inter: 'Inter';
-  --font-instrument-serif: 'Instrument Serif';
-  --font-instrument-sans: 'Instrument Sans';
-  --font-unbounded: 'Unbounded';
+  --font-manrope: var(--font-manrope);
+  --font-inter: var(--font-inter);
+  --font-instrument-serif: var(--font-instrument-serif);
+  --font-instrument-sans: var(--font-instrument-sans);
+  --font-unbounded: var(--font-unbounded);
+  --font-overused-grotesk: var(--font-overused-grotesk);
+
+  --font-title: var(--font-overused-grotesk);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button {
+  @apply font-overused-grotesk;
+  @apply tracking-tight;
 }
 
 @keyframes accordion-down {

@@ -119,7 +119,7 @@ export default function Navbar() {
 
       {/* Mobile Header */}
       <header
-        className={`fixed w-full top-4 z-[9999] flex items-center justify-between rounded-full md:hidden px-4 py-3 transition-all duration-300`}
+        className={`fixed w-full flex flex-col top-4 z-[9999] items-center justify-between rounded-full md:hidden px-4 py-3 transition-all duration-300`}
       >
         <div
           className={`w-full h-16 flex flex-row items-center justify-between gap-6 rounded-full backdrop-blur-md md:flex border border-default-border transition-all duration-300 py-4 px-4 ${
@@ -182,38 +182,34 @@ export default function Navbar() {
             </AnimatePresence>
           </button>
         </div>
-      </header>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-sm md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+        <AnimatePresence>
+          {isMobileMenuOpen && (
             <motion.div
-              className="absolute top-24 left-4 right-4 backdrop-blur-md border border-[#ffffff11] rounded-2xl shadow-2xl p-6"
-              style={{ background: "rgba(255, 255, 255, 0.1)" }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              className={cn(
+                "md:hidden z-[9998] w-full bg-black/40 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
+              )}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
               <nav className="flex flex-col space-y-4">
                 {PAGES.map((p) => (
                   <Link
                     key={`mobile-${p.path}`}
                     href={p.path}
-                    className="text-left px-4 py-3 text-lg font-medium tracking-tighter uppercase text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title"
+                    className={cn(
+                      "text-left px-4 py-3 text-lg font-medium tracking-tighter uppercase text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title",
+                      pathname === p.path && "text-white font-bold bg-white/20"
+                    )}
                   >
                     {p.label}
                   </Link>
                 ))}
               </nav>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }

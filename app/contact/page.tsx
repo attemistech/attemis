@@ -60,23 +60,13 @@ export default function Contact() {
                 <CardContent className="p-6 md:p-8 font-overused-grotesk text-xl">
                   <form>
                     <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-                      <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-lg" htmlFor="firstName">
-                          Primeiro nome
+                      <div className="col-span-2">
+                        <Label className="text-lg" htmlFor="nome">
+                          Nome
                         </Label>{" "}
                         <Input
                           placeholder=""
-                          id="firstName"
-                          className="mt-2 bg-white h-10 shadow-none text-lg"
-                        />
-                      </div>
-                      <div className="col-span-2 sm:col-span-1">
-                        <Label className="text-lg" htmlFor="lastName">
-                          Último nome
-                        </Label>{" "}
-                        <Input
-                          placeholder=""
-                          id="lastName"
+                          id="nome"
                           className="mt-2 bg-white h-10 shadow-none text-lg"
                         />
                       </div>

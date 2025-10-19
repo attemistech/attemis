@@ -17,31 +17,30 @@ export default function About() {
           <span className="font-thin">criação composta</span> que, segundo a
           explicação da própria marca, deriva de duas partes:
         </h1>
-        <div className="flex flex-col md:flex-row gap-10 w-full">
-          <div className="relative shadow-lg p-8 flex flex-col gap-6 rounded-2xl flex-1 border border-default-border max-w-lg">
-            <LiquidEffectBackground />
-            <h2 className="text-start font-overused-grotesk text-6xl font-semibold leading-tighter tracking-tighter w-full">
+        <div className="flex flex-col gap-6 w-full">
+          <div className="flex flex-row gap-4 rounded-4xl _max-w-lg items-center">
+            <h2 className="text-start font-overused-grotesk text-4xl md:text-5xl font-semibold leading-tighter tracking-tighter">
               <span className="font-instrument-serif">"</span>atto
               <span className="font-instrument-serif">"</span>
+              {"  —  "}
+              <span className="text-pretty text-black/60 font-overused-grotesk font-medium tracking-tighter pl-1">
+                Do italiano ou latim, significa ação, ato ou gesto intencional.
+              </span>
             </h2>
-            <p className="text-pretty text-black/70 max-w-xl font-overused-grotesk font-medium tracking-tight text-xl">
-              Do italiano ou latim, significa ação, ato ou gesto intencional.
-            </p>
           </div>
-          <div className="relative shadow-lg p-8 flex flex-col gap-6 rounded-2xl flex-1 border border-default-border max-w-lg">
-            <LiquidEffectBackground />
-            <h2 className="text-start font-overused-grotesk text-6xl font-semibold leading-tighter tracking-tighter w-full">
+          <div className="flex flex-row gap-4 rounded-4xl _max-w-lg items-center">
+            <h2 className="text-start font-overused-grotesk text-4xl md:text-5xl font-semibold leading-tighter tracking-tighter">
               <span className="font-instrument-serif">"</span>emis
               <span className="font-instrument-serif">"</span>
+              {"  —  "}
+              <span className="text-pretty text-black/60 font-overused-grotesk font-medium tracking-tighter pl-1">
+                Emissário, alguém que leva algo adiante, propaga ou transmite.
+              </span>
             </h2>
-            <p className="text-pretty text-black/70 max-w-xl font-overused-grotesk font-medium tracking-tight text-xl">
-              Referência a emissário, alguém que leva algo adiante, propaga ou
-              transmite.
-            </p>
           </div>
         </div>
       </Section>
-      <Section className="flex flex-col gap-10 items-start">
+      <Section className="flex flex-col gap-10 items-start py-20">
         <h1 className="font-overused-grotesk w-full text-3xl font-medium tracking-tight text-black/70 md:text-5xl text-pretty drop-shadow-2xl max-w-5xl">
           A <span className="font-bold text-black">Attemis Tecnologia</span> é a
           única empresa na América Latina com atuação integrada em pesquisa,

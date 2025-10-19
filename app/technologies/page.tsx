@@ -111,7 +111,7 @@ export default function Tecnologies() {
         </h1>
         <div className="grid grid-cols-1 grid-flow-row md:grid-cols-[repeat(auto-fit,minmax(30rem,1fr))] auto-rows-auto md:flex-row gap-10 w-full">
           {TechnologyCards.map((t) => (
-            <div className="relative hover:scale-[1.02] transition-all shadow-lg p-8 flex flex-col gap-6 rounded-2xl flex-1 border border-default-border min-w-0">
+            <div className="relative hover:scale-[1.02] transition-all shadow-lg p-8 flex flex-col gap-6 rounded-4xl flex-1 border border-default-border min-w-0">
               <LiquidEffectBackground />
               <h2 className="text-start font-overused-grotesk text-3xl font-bold leading-tighter tracking-tight w-full">
                 {t.title}

@@ -9,7 +9,6 @@ import LiquidButton from "@/components/LiquidButton";
 import { usePathname, useRouter } from "next/navigation";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Section } from "@/components/Section";
-import ReactDOM from "react-dom";
 
 export default function Home() {
   const router = useRouter();

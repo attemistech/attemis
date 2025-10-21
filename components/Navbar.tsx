@@ -201,6 +201,7 @@ export default function Navbar() {
                       "text-left px-4 py-3 text-lg font-medium tracking-tighter uppercase text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title",
                       pathname === p.path && "text-white font-bold bg-white/20"
                     )}
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {p.label}
                   </Link>

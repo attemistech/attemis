@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <PageWrapper>
       {/* Hero Section */}
-      <div className="flex-1 flex items-center justify-center z-10 bg-transparent">
+      <div className="flex-1 flex items-center justify-center bg-transparent">
         <Section hero>
-          <div className="relative z-10 flex w-full flex-col items-center gap-8 text-center p-4 py-8">
+          <div className="relative flex w-full flex-col items-center gap-8 text-center p-4 py-8">
             <h1 className="text-6xl font-regular leading-tighter tracking-tight text-black md:text-8xl text-center md:text-left drop-shadow-2xl font-overused-grotesk">
               Inovando rumo
               <br />

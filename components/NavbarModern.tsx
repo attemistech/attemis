@@ -55,7 +55,7 @@ export default function Navbar() {
         animate="visible"
       >
         <MotionLink
-          className={`z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-[#eeeeee]/80`}
+          className={`z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80`}
           href="/"
         >
           <Image
@@ -67,7 +67,7 @@ export default function Navbar() {
           />
         </MotionLink>
 
-        <div className="p-3 px-6 h-12 rounded-full backdrop-blur-lg bg-[#efefef]/90 inset-0 hidden flex-row gap-6 items-center justify-start space-x-2 text-sm font-medium text-black/70 transition duration-200 hover:text-black md:flex md:space-x-2">
+        <div className="p-3 px-6 h-12 rounded-full backdrop-blur-lg bg-offwhite/90 inset-0 hidden flex-row gap-6 items-center justify-start space-x-2 text-sm font-medium text-black/70 transition duration-200 hover:text-black md:flex md:space-x-2">
           {PAGES.map((p) => (
             <Link
               key={p.path}
@@ -92,7 +92,7 @@ export default function Navbar() {
       >
         <div className="w-full h-16 flex flex-row items-center justify-between gap-6 rounded-full md:flex transition-all duration-300 px-4 py-2">
           <MotionLink
-            className="z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-[#eeeeee]/80"
+            className="z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80"
             href="/"
           >
             <Image
@@ -156,7 +156,7 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden z-[9998] w-full bg-black/40 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
+              className="md:hidden z-[9998] w-full bg-black/20 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

@@ -19,7 +19,7 @@ export const warpVariants: Variants = {
     transform: "scale(1)",
     willChange: "none",
     transition: {
-      duration: 1,
+      duration: 0.4,
       delay: opt.delay + opt.index * opt.stagger,
       ease: [0.25, 0.4, 0.25, 1],
     },

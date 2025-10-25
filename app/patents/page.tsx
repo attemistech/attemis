@@ -1,5 +1,6 @@
 import { PageWrapper } from "@/components/PageWrapper";
 import { Section } from "@/components/Section";
+import { cn } from "@/lib/utils";
 
 const PatentList = [
   {
@@ -45,14 +46,38 @@ export default function Patents() {
     <PageWrapper>
       <Section
         hero
-        className="justify-center md:justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10"
+        className="justify-center md:justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10 px-0 sm:px-0 md:px-0"
       >
-        <h1 className="font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
           Temos autores de
           <br />
           diversas <span className="font-thin">patentes</span> como:
         </h1>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col gap-0 w-full">
+          {PatentList.map((p, i) => (
+            <div className={cn("w-full flex flex-col pt-8 pb-10 gap-6 px-20")}>
+              <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
+                <h3 className="font-geist-mono text-[#aaa] text-base max-w-xl">
+                  {String(i + 1).padStart(
+                    String(PatentList.length).length,
+                    "0"
+                  )}{" "}
+                </h3>
+                <div className="h-px w-full bg-[#ddd]" />
+              </div>
+              <h1 className="text-start font-overused-grotesk text-4xl font-[400]">
+                {p.title}
+              </h1>
+              <h2 className="[font-variation-settings:'slnt'_-5] text-pretty max-w-xl font-overused-grotesk tracking text-lg font-[370]">
+                {p.abstract}
+              </h2>
+              <h3 className="text-[#999] text-base">
+                por {p.inventors.join(", ")}
+              </h3>
+            </div>
+          ))}
+        </div>
+        <div className="hidden flex flex-col w-full">
           {PatentList.map((p) => (
             <div className="w-full border-t border-default-border gap-2 flex flex-col p-8 pl-1">
               <h2 className="text-4xl font-bold font-overused-grotesk tracking-tight mb-2">

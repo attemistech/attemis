@@ -1,13 +1,14 @@
+import { ReactLenis } from "lenis/react";
+import { ViewTransitions } from "next-view-transitions";
+
 import Fonts from "@/app/fonts";
 
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/NavbarModern";
+import PageTransitionEffect from "@/components/PageTransitionEffect";
 
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
-import { ViewTransitions } from "next-view-transitions";
-import PageTransitionEffect from "@/components/PageTransitionEffect";
-import { MeshGradient } from "@paper-design/shaders-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <html lang="en">
         <body
           className={cn(
+            "overflow-x-hidden",
             Fonts.InstrumentSerif.variable,
             Fonts.InstrumentSans.variable,
             Fonts.GeistSans.variable,
@@ -26,13 +28,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
         >
           <Navbar />
-          <PageTransitionEffect>{children}</PageTransitionEffect>
+          <PageTransitionEffect>
+            <ReactLenis root />
+            {children}
+          </PageTransitionEffect>
         </body>
       </html>
     </ViewTransitions>
   );
 }
-
-export const metadata = {
-  generator: "v0.app",
-};

@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useContext, useRef } from "react";
-import { transform } from "next/dist/build/swc";
 
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext ?? {});
@@ -21,10 +20,28 @@ function FrozenRouter(props: { children: React.ReactNode }) {
   );
 }
 
-const variants = {
-  initial: { opacity: 0, x: "100%", filter: "blur(50px)" },
-  enter: { opacity: 1, x: 0, filter: "blur(0px)" },
-  exit: { opacity: 0, x: "-100%", filter: "blur(50px)" },
+export const variants: Variants = {
+  hidden: {
+    opacity: 0,
+    filter: "blur(15px) brightness(1.8)",
+    transform: "scale(1.1)",
+  },
+  visible: (
+    opt: { index: number; delay: number; stagger: number } = {
+      index: 0,
+      delay: 0,
+      stagger: 0,
+    }
+  ) => ({
+    opacity: 1,
+    filter: "blur(0) brightness(1)",
+    transform: "scale(1)",
+    transition: {
+      duration: 1,
+      delay: opt.delay + opt.index * opt.stagger,
+      ease: [0.25, 0.4, 0.25, 1],
+    },
+  }),
 };
 
 const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
@@ -35,9 +52,9 @@ const PageTransitionEffect = ({ children }: { children: React.ReactNode }) => {
     <AnimatePresence mode="wait">
       <motion.div
         key={key}
-        initial="initial"
-        animate="enter"
-        exit="exit"
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
         variants={variants}
         transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.25 }}
       >

@@ -18,8 +18,8 @@ export default function Home() {
       {/* Hero Section */}
       <div className="flex-1 flex items-center justify-center z-10 bg-transparent">
         <Section hero>
-          <div className="relative z-10 flex w-full flex-col md:items-start items-center gap-8 text-center p-4 py-8">
-            <h1 className="text-6xl font-regular leading-tighter tracking-tight text-black md:text-7xl text-center md:text-left drop-shadow-2xl font-overused-grotesk">
+          <div className="relative z-10 flex w-full flex-col items-center gap-8 text-center p-4 py-8">
+            <h1 className="text-6xl font-regular leading-tighter tracking-tight text-black md:text-8xl text-center md:text-left drop-shadow-2xl font-overused-grotesk">
               Inovando rumo
               <br />
               ao{" "}
@@ -27,7 +27,7 @@ export default function Home() {
                 futuro.
               </span>
             </h1>
-            <p className="font-overused-grotesk tracking-tight text-xl md:text-2xl text-black/80 max-w-2xl text-pretty md:text-left drop-shadow-lg">
+            <p className="font-overused-grotesk tracking-tight text-xl md:text-xl text-black/80 max-w-xl text-pretty _md:text-left drop-shadow-lg">
               Desenvolvemos soluções com base científica, alto rigor técnico e
               aplicação real. Explore o que estamos criando para transformar o
               futuro da indústria.

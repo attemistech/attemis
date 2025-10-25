@@ -118,6 +118,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-offwhite: #f2f2f4;
+  --color-grey-light: #efefef;
+
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -129,6 +132,7 @@
   --font-inter: var(--font-inter);
   --font-instrument-serif: var(--font-instrument-serif);
   --font-instrument-sans: var(--font-instrument-sans);
+  --font-geist-mono: 'Geist Mono', monospace;
   --font-unbounded: var(--font-unbounded);
   --font-overused-grotesk: var(--font-overused-grotesk);
 
@@ -171,4 +175,37 @@ button {
 body {
   background-color: var(--background);
   color: var(--foreground);
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #dddddd;
+  transition: all 0.3s ease-in-out;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #dfdfdf;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #dfdfdf;
 }

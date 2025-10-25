@@ -1,6 +1,7 @@
 import { LiquidEffectBackground } from "@/components/LiquidCard";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Section } from "@/components/Section";
+import { cn } from "@/lib/utils";
 
 const TechnologyCards = [
   {
@@ -103,13 +104,34 @@ export default function Tecnologies() {
     <PageWrapper>
       <Section
         hero
-        className="justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10"
+        className="justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10 px-0 sm:px-0 md:px-0"
       >
-        <h1 className="font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
           Selecionamos algumas de nossas principais{" "}
           <span className="font-thin">tecnologias</span>.
         </h1>
-        <div className="grid grid-cols-1 grid-flow-row md:grid-cols-[repeat(auto-fit,minmax(30rem,1fr))] auto-rows-auto md:flex-row gap-10 w-full">
+        <div className="flex flex-col gap-0 w-full">
+          {TechnologyCards.map((t, i) => (
+            <div className="w-full flex flex-col pt-8 pb-10 gap-6 px-20">
+              <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
+                <h3 className="font-geist-mono text-[#aaa] text-base max-w-xl">
+                  {String(i + 1).padStart(
+                    String(TechnologyCards.length).length,
+                    "0"
+                  )}{" "}
+                </h3>
+                <div className="h-px w-full bg-[#ddd]" />
+              </div>
+              <h1 className="text-start font-overused-grotesk text-4xl font-[400]">
+                {t.title}
+              </h1>
+              <h2 className="text-pretty max-w-xl tracking-tighter text-2xl font-[350]">
+                {t.description}
+              </h2>
+            </div>
+          ))}
+        </div>
+        <div className="hidden _grid grid-cols-1 grid-flow-row md:grid-cols-[repeat(auto-fit,minmax(30rem,1fr))] auto-rows-auto md:flex-row gap-10 w-full">
           {TechnologyCards.map((t) => (
             <div className="relative hover:scale-[1.02] transition-all shadow-lg p-8 flex flex-col gap-6 rounded-4xl flex-1 border border-default-border min-w-0">
               <LiquidEffectBackground />

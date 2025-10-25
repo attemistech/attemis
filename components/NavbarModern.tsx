@@ -22,6 +22,7 @@ const MotionLink = motion.create(Link);
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   const pathname = usePathname();
   console.log(pathname);
@@ -30,13 +31,17 @@ export default function Navbar() {
     <>
       {/* Desktop Header */}
       <motion.header
-        className="fixed top-8 z-[9999] mx-auto hidden w-full gap-4 flex-row items-center justify-center self-start rounded-full md:flex transition-all duration-300 px-5 sm:px-20"
+        className={cn(
+          "fixed top-8 z-[9999] mx-auto hidden w-full gap-4 flex-row items-center justify-center self-start rounded-full md:flex transition-all duration-300 px-5 sm:px-20",
+          !isAnimating && "![filter:unset]"
+        )}
         variants={warpVariants}
         initial="hidden"
-        animate="visible"
+        animate={"visible"}
+        onAnimationComplete={() => setIsAnimating(false)}
       >
         <MotionLink
-          className="flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80"
+          className="flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-sm saturate-150 bg-offwhite/80"
           href="/"
         >
           <Image
@@ -48,7 +53,7 @@ export default function Navbar() {
           />
         </MotionLink>
 
-        <div className="p-3 px-6 h-12 rounded-full backdrop-blur-lg bg-offwhite/90 inset-0 hidden flex-row gap-6 items-center justify-start space-x-2 text-sm font-medium text-black/70 transition duration-200 hover:text-black md:flex md:space-x-2">
+        <div className="p-3 px-6 h-12 rounded-full backdrop-blur-sm saturate-150 bg-offwhite/90 inset-0 hidden flex-row gap-6 items-center justify-start space-x-2 text-sm font-medium text-black/70 transition duration-200 hover:text-black md:flex md:space-x-2">
           {PAGES.map((p) => (
             <Link
               key={p.path}
@@ -66,14 +71,18 @@ export default function Navbar() {
 
       {/* Mobile Header */}
       <motion.header
-        className="fixed w-full flex flex-col top-8 z-[9999] items-center justify-between rounded-full md:hidden px-4 py-3 transition-all duration-300"
+        className={cn(
+          "fixed w-full flex flex-col top-8 z-[9999] items-center justify-between rounded-full md:hidden px-4 py-3 transition-all duration-300",
+          !isAnimating && "![filter:unset]"
+        )}
         variants={warpVariants}
         initial="hidden"
         animate="visible"
+        onAnimationComplete={() => setIsAnimating(false)}
       >
         <div className="w-full h-16 flex flex-row items-center justify-between gap-6 rounded-full md:flex transition-all duration-300 px-4 py-2">
           <MotionLink
-            className="z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80"
+            className="z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-sm saturate-150 bg-offwhite/80"
             href="/"
           >
             <Image
@@ -87,7 +96,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="flex items-center justify-center w-10 h-10 rounded-full transition-colors"
+            className="flex items-center justify-center p-3 h-12 w-12 aspect-square backdrop-blur-sm saturate-150 bg-offwhite/80 rounded-full transition-colors"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait">
@@ -105,7 +114,7 @@ export default function Navbar() {
                   initial={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
                   animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
                   exit={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.1 }}
                 >
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
@@ -124,7 +133,7 @@ export default function Navbar() {
                   initial={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
                   animate={{ filter: "blur(0px)", scale: 1, opacity: 1 }}
                   exit={{ filter: "blur(10px)", scale: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.1 }}
                 >
                   <line x1="3" y1="12" x2="21" y2="12" />
                   <line x1="3" y1="6" x2="21" y2="6" />
@@ -137,7 +146,7 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden z-[9998] w-full bg-offwhite/80 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
+              className="md:hidden z-[9998] w-full bg-offwhite/80 backdrop-blur-md saturate-150 border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

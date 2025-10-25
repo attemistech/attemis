@@ -46,18 +46,22 @@ export default function Patents() {
     <PageWrapper>
       <Section
         hero
-        className="justify-center md:justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10 px-0 sm:px-0 md:px-0"
+        className="justify-center md:justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10 px-0 sm:px-0"
       >
-        <h1 className="px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="px-5 sm:px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
           Temos autores de
           <br />
           diversas <span className="font-thin">patentes</span> como:
         </h1>
         <div className="flex flex-col gap-0 w-full">
           {PatentList.map((p, i) => (
-            <div className={cn("w-full flex flex-col pt-8 pb-10 gap-6 px-20")}>
+            <div
+              className={cn(
+                "w-full flex flex-col pt-8 pb-10 gap-6 px-5 sm:px-20"
+              )}
+            >
               <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
-                <h3 className="font-geist-mono text-[#aaa] text-base max-w-xl">
+                <h3 className="font-geist-mono text-[#aaa] tracking-wide text-base max-w-xl">
                   {String(i + 1).padStart(
                     String(PatentList.length).length,
                     "0"

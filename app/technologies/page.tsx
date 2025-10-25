@@ -106,15 +106,15 @@ export default function Tecnologies() {
         hero
         className="justify-start items-start pt-20 flex-col gap-20 md:gap-20 pb-10 px-0 sm:px-0 md:px-0"
       >
-        <h1 className="px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="px-5 sm:px-20 font-overused-grotesk text-5xl font-semibold tracking-tighter text-black md:text-7xl text-pretty drop-shadow-2xl max-w-5xl">
           Selecionamos algumas de nossas principais{" "}
           <span className="font-thin">tecnologias</span>.
         </h1>
         <div className="flex flex-col gap-0 w-full">
           {TechnologyCards.map((t, i) => (
-            <div className="w-full flex flex-col pt-8 pb-10 gap-6 px-20">
+            <div className="w-full flex flex-col pt-8 pb-10 gap-6 px-5 sm:px-20">
               <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
-                <h3 className="font-geist-mono text-[#aaa] text-base max-w-xl">
+                <h3 className="font-geist-mono text-[#aaa] tracking-wide text-base max-w-xl">
                   {String(i + 1).padStart(
                     String(TechnologyCards.length).length,
                     "0"

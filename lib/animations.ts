@@ -5,7 +5,6 @@ export const warpVariants: Variants = {
     opacity: 0,
     filter: "blur(15px) brightness(1.8)",
     transform: "scale(1.1)",
-    willChange: "transform",
   },
   visible: (
     opt: { index: number; delay: number; stagger: number } = {
@@ -17,7 +16,6 @@ export const warpVariants: Variants = {
     opacity: 1,
     filter: "blur(0) brightness(1)",
     transform: "scale(1)",
-    willChange: "none",
     transition: {
       duration: 0.4,
       delay: opt.delay + opt.index * opt.stagger,

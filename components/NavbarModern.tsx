@@ -1,15 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTransitionRouter } from "next-view-transitions";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Logo from "@/assets/attemis-logo.svg";
 import { cn } from "@/lib/utils";
-import { usePathname, useRouter } from "next/navigation";
-import { ModalPageAnimation } from "@/lib/page-transitions";
+import { usePathname } from "next/navigation";
 import { warpVariants } from "@/lib/animations";
 
 const PAGES = [
@@ -25,37 +23,20 @@ const MotionLink = motion.create(Link);
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const router = useTransitionRouter();
   const pathname = usePathname();
   console.log(pathname);
-
-  const handleMobileNavClick = (sectionId: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerOffset = 120;
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <>
       {/* Desktop Header */}
       <motion.header
-        className={`fixed top-8 z-[9999] mx-auto hidden w-full gap-4 flex-row items-center justify-center self-start rounded-full md:flex transition-all duration-300 px-5 sm:px-20`}
+        className="fixed top-8 z-[9999] mx-auto hidden w-full gap-4 flex-row items-center justify-center self-start rounded-full md:flex transition-all duration-300 px-5 sm:px-20"
         variants={warpVariants}
         initial="hidden"
         animate="visible"
       >
         <MotionLink
-          className={`z-50 flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80`}
+          className="flex justify-center items-center transition-all duration-300 p-3 h-12 w-12 aspect-square rounded-full backdrop-blur-lg bg-offwhite/80"
           href="/"
         >
           <Image
@@ -156,7 +137,7 @@ export default function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              className="md:hidden z-[9998] w-full bg-black/20 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
+              className="md:hidden z-[9998] w-full bg-offwhite/80 backdrop-blur-md border border-[#ffffff11] rounded-b-2xl shadow-2xl p-6 rounded-2xl mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -167,8 +148,8 @@ export default function Navbar() {
                     key={`mobile-${p.path}`}
                     href={p.path}
                     className={cn(
-                      "text-lg font-[400] tracking-tight p-2 pl-3 text-white/80 hover:text-white transition-colors rounded-xl hover:bg-white/10 font-title",
-                      pathname === p.path && "text-white bg-white/20"
+                      "text-lg font-[400] tracking-tight p-2 pl-3 text-black/80 hover:text-black transition-colors rounded-xl hover:bg-black/10 font-title",
+                      pathname === p.path && "text-black bg-black/5"
                     )}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

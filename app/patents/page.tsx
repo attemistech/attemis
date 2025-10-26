@@ -1,3 +1,4 @@
+import ListItemIndex from "@/components/ListItemIndex";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Section } from "@/components/Section";
 import { cn } from "@/lib/utils";
@@ -60,15 +61,7 @@ export default function Patents() {
                 "w-full flex flex-col pt-8 pb-10 gap-6 px-5 sm:px-20"
               )}
             >
-              <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
-                <h3 className="font-geist-mono text-[#aaa] tracking-wide text-base max-w-xl">
-                  {String(i + 1).padStart(
-                    String(PatentList.length).length,
-                    "0"
-                  )}{" "}
-                </h3>
-                <div className="h-px w-full bg-[#ddd]" />
-              </div>
+              <ListItemIndex index={i} total={PatentList.length} />
               <h1 className="text-start font-overused-grotesk text-4xl font-[400]">
                 {p.title}
               </h1>

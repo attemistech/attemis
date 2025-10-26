@@ -1,7 +1,7 @@
 import { LiquidEffectBackground } from "@/components/LiquidCard";
+import ListItemIndex from "@/components/ListItemIndex";
 import { PageWrapper } from "@/components/PageWrapper";
 import { Section } from "@/components/Section";
-import { cn } from "@/lib/utils";
 
 const TechnologyCards = [
   {
@@ -113,15 +113,7 @@ export default function Tecnologies() {
         <div className="flex flex-col gap-0 w-full">
           {TechnologyCards.map((t, i) => (
             <div className="w-full flex flex-col pt-8 pb-10 gap-6 px-5 sm:px-20">
-              <div className="h-fit w-full md:max-w-xs flex flex-row items-center gap-2">
-                <h3 className="font-geist-mono text-[#aaa] tracking-wide text-base max-w-xl">
-                  {String(i + 1).padStart(
-                    String(TechnologyCards.length).length,
-                    "0"
-                  )}{" "}
-                </h3>
-                <div className="h-px w-full bg-[#ddd]" />
-              </div>
+              <ListItemIndex index={i} total={TechnologyCards.length} />
               <h1 className="text-start font-overused-grotesk text-4xl font-[400]">
                 {t.title}
               </h1>

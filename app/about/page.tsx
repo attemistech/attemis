@@ -23,7 +23,7 @@ export default function About() {
               <span className="font-instrument-serif">"</span>atto
               <span className="font-instrument-serif">"</span>
               {"  —  "}
-              <span className="text-pretty text-black/60 font-overused-grotesk font-medium tracking-tighter pl-1">
+              <span className="text-pretty text-black/60 font-overused-grotesk font-[400] tracking-tighter pl-1">
                 Do italiano ou latim, significa ação, ato ou gesto intencional.
               </span>
             </h2>
@@ -33,7 +33,7 @@ export default function About() {
               <span className="font-instrument-serif">"</span>emis
               <span className="font-instrument-serif">"</span>
               {"  —  "}
-              <span className="text-pretty text-black/60 font-overused-grotesk font-medium tracking-tighter pl-1">
+              <span className="text-pretty text-black/60 font-overused-grotesk font-[400] tracking-tighter pl-1">
                 Emissário, alguém que leva algo adiante, propaga ou transmite.
               </span>
             </h2>
@@ -41,14 +41,14 @@ export default function About() {
         </div>
       </Section>
       <Section className="flex flex-col gap-10 items-start py-20">
-        <h1 className="font-overused-grotesk w-full text-3xl font-medium tracking-tight text-black/70 md:text-5xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="font-overused-grotesk w-full text-3xl font-[400] tracking-tight text-black/70 md:text-5xl text-pretty drop-shadow-2xl max-w-5xl">
           A <span className="font-bold text-black">Attemis Tecnologia</span> é a
           única empresa na América Latina com atuação integrada em pesquisa,
           desenvolvimento e aplicação de tecnologias de ponta nas áreas de
           biotecnologia, farmacologia, engenharia de materiais, tratamento de
           resíduos industriais e polímeros avançados.
         </h1>
-        <h1 className="font-overused-grotesk w-full text-3xl font-medium tracking-tight text-black/70 md:text-5xl text-pretty drop-shadow-2xl max-w-5xl">
+        <h1 className="font-overused-grotesk w-full text-3xl font-[400] tracking-tight text-black/70 md:text-5xl text-pretty drop-shadow-2xl max-w-5xl">
           Com infraestrutura própria de pesquisa e parcerias estratégicas, somos
           referência em transformar ciência em soluções industriais de alto
           impacto, com agilidade, rigor técnico e inovação constante.

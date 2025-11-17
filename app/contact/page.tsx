@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from "lucide-react";
 import Link from "next/link";
+import { ContactForm } from "./(components)/ContactForm";
 
 export default function Contact() {
   return (
@@ -58,60 +59,7 @@ export default function Contact() {
               {/* Form */}
               <Card className="border border-default-border py-0 rounded-2xl shadow-lg">
                 <CardContent className="p-6 md:p-8 font-overused-grotesk text-xl">
-                  <form>
-                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-                      <div className="col-span-2">
-                        <Label className="text-lg" htmlFor="nome">
-                          Nome
-                        </Label>{" "}
-                        <Input
-                          placeholder=""
-                          id="nome"
-                          className="mt-2 bg-white h-10 shadow-none text-lg"
-                        />
-                      </div>
-                      <div className="col-span-2">
-                        <Label className="text-lg" htmlFor="email">
-                          Email
-                        </Label>{" "}
-                        <Input
-                          type="email"
-                          placeholder=""
-                          id="email"
-                          className="mt-2 bg-white h-10 shadow-none text-lg"
-                        />
-                      </div>
-                      <div className="col-span-2">
-                        <Label className="text-lg" htmlFor="message">
-                          Mensagem
-                        </Label>{" "}
-                        <Textarea
-                          id="message"
-                          placeholder=""
-                          className="mt-2 bg-white shadow-none text-lg"
-                          rows={6}
-                        />
-                      </div>
-                      {/*}
-                      <div className="col-span-2 flex items-center gap-2">
-                        <Checkbox id="acceptTerms" className="bg-background" />
-                        <Label htmlFor="acceptTerms" className="gap-0">
-                          You agree to our
-                          <Link href="#" className="underline ml-1">
-                            terms and conditions
-                          </Link>
-                          <span>.</span>
-                        </Label>
-                      </div>
-                      */}
-                    </div>
-                    <LiquidButton
-                      size="xl"
-                      className="w-full mt-6 rounded-full text-xl tracking-tight font-semibold font-overused-grotesk"
-                    >
-                      Enviar
-                    </LiquidButton>
-                  </form>
+                  <ContactForm />
                 </CardContent>
               </Card>
             </div>

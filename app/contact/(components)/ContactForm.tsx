@@ -9,12 +9,12 @@ export const ContactForm = () => {
     <form action={sendContactEmail}>
       <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
         <div className="col-span-2">
-          <Label className="text-lg" htmlFor="nome">
+          <Label className="text-lg" htmlFor="name">
             Nome
           </Label>{" "}
           <Input
             placeholder=""
-            id="nome"
+            id="name"
             name="name"
             className="mt-2 bg-white h-10 shadow-none text-lg"
           />
